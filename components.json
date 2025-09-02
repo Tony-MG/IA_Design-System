@@ -1,0 +1,98 @@
+[
+  {
+    "component_id": "text",
+    "name": "Texte",
+    "level": "atom",
+    "description": "Affiche un contenu textuel. Sert de base pour tous les textes de l'interface.",
+    "dependencies": [],
+    "code_html": "<p class=\"text\">Contenu du texte</p>",
+    "variations": [
+      {
+        "name": "secondary",
+        "selector": ".text--secondary",
+        "description": "Pour les textes de moindre importance."
+      }
+    ]
+  },
+  {
+    "component_id": "step-indicator",
+    "name": "Indicateur d'étape",
+    "level": "atom",
+    "description": "Cercle numéroté indiquant une étape dans un processus.",
+    "dependencies": [],
+    "code_html": "<div class=\"step-indicator\">1</div>",
+    "variations": [
+      {
+        "name": "active",
+        "selector": ".step-indicator--active",
+        "description": "Indique l'étape en cours."
+      }
+    ]
+  },
+  {
+    "component_id": "button",
+    "name": "Bouton",
+    "level": "atom",
+    "description": "Élément interactif de base pour déclencher une action.",
+    "dependencies": [],
+    "code_html": "<button class=\"button\">Action</button>",
+    "variations": [
+      {
+        "name": "primary",
+        "selector": ".button--primary",
+        "description": "Pour les actions principales."
+      },
+      {
+        "name": "secondary",
+        "selector": ".button--secondary",
+        "description": "Pour les actions alternatives."
+      },
+      {
+        "name": "disabled",
+        "selector": ":disabled",
+        "description": "État inactif."
+      }
+    ]
+  },
+  {
+    "component_id": "stepper-item",
+    "name": "Élément de progression",
+    "level": "molecule",
+    "description": "Combine un indicateur et un label pour représenter une étape complète.",
+    "dependencies": [
+      "step-indicator",
+      "text"
+    ],
+    "code_html": "<div class=\"stepper__item\"><div class=\"step-indicator\">1</div><span class=\"text\">Import</span></div>",
+    "variations": [
+      {
+        "name": "active",
+        "selector": ".stepper__item--active",
+        "description": "Représente l'étape actuelle du processus."
+      }
+    ]
+  },
+  {
+    "component_id": "stepper",
+    "name": "Barre de progression",
+    "level": "organism",
+    "description": "Affiche la séquence complète des étapes, guidant l'utilisateur.",
+    "dependencies": [
+      "stepper-item"
+    ],
+    "code_html": "<nav class=\"stepper\"><div class=\"stepper__item stepper__item--active\">...</div><hr class=\"stepper__divider\" /><div class=\"stepper__item\">...</div></nav>",
+    "variations": []
+  },
+  {
+    "component_id": "dropzone",
+    "name": "Zone de dépôt de fichiers",
+    "level": "organism",
+    "description": "Zone interactive permettant à l'utilisateur de glisser-déposer des fichiers.",
+    "dependencies": [
+      "text",
+      "button"
+    ],
+    "code_html": "<div class=\"dropzone\"><p class=\"text\">...</p><p class=\"text\">ou</p><button class=\"button button--secondary\">...</button></div>",
+    "variations": []
+  }
+]
