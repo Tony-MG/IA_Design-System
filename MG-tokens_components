@@ -1,6 +1,64 @@
+<@UG4NX6L3G> 
+```json
 {
-  "tokens":{
+  "colors": {
+    "Green-100": {
+      "value": "#00C8C8",
+      "css": "--Green-100: #00C8C8;"
+    },
+    "Purple-100": {
+      "value": "#5E00D5",
+      "css": "--Purple-100: #5E00D5;"
+    },
+    "Orange-100": {
+      "value": "#FE976E",
+      "css": "--Orange-100: #FE976E;"
+    },
+    "Black-100": {
+      "value": "#393938",
+      "css": "--Black-100: #393938;"
+    },
+    "Teal-Light-100": {
+      "value": "#B3EEEE",
+      "css": "--Teal-Light-100: #B3EEEE;"
+    },
+    "Teal-Light-200": {
+      "value": "#CCF4F4",
+      "css": "--Teal-Light-200: #CCF4F4;"
+    }
   },
-  "components":{
+  "typography": {
+    "fontFamilyBase": {
+      "value": "Jost",
+      "css": "--font-family-base: 'Jost';"
+    },
+    "fontWeightRegular": {
+      "value": 400,
+      "css": "--font-weight-regular: 400;"
+    },
+    "fontWeightSemibold": {
+      "value": 600,
+      "css": "--font-weight-semibold: 600;"
+    },
+    "fontWeightBold": {
+      "value": 700,
+      "css": "--font-weight-bold: 700;"
+    }
+  },
+  "iconography": {
+    "iconStrokeColor": {
+      "value": "#5E00D5",
+      "css": "--icon-stroke-color: #5E00D5;"
+    },
+    "iconBackgroundColorOnWhite": {
+      "value": "#CCF4F4",
+      "css": "--icon-background-color-on-white: #CCF4F4;"
+    },
+    "overlayColor": {
+      "value": "rgba(0, 200, 200, 0.2)",
+      "css": "--overlay-color: rgba(0, 200, 200, 0.2);"
+    }
   }
 }
+```
+_Automated with this <https://n8n.monsieurguiz.fr/workflow/MmvoReYQMLaulLXz?utm_source=n8n-internal&amp;utm_medium=powered_by&amp;utm_campaign=n8n-nodes-base.slack_ae3a590f926021c076526f8f23031e982ca3c83766fe1b89bccaf9f51050d8de|n8n workflow>_
