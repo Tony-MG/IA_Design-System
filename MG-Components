@@ -1,5 +1,5 @@
 {
- "btn-primary-solid": {
+  "btn-primary-solid": {
     "id": "btn-cta-right-rounded-v1",
     "name": "Bouton CTA (angles droits en haut-gauche)",
     "type": "button",
