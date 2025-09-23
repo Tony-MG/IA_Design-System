@@ -189,6 +189,12 @@
         "value": "#FFFFFF",
         "css": "--white-900: #FFFFFF;"
       }
+    },
+    "gray": {
+      "900": {
+        "value": "#0D0D0D",
+        "css": "--gray-900: #0D0D0D;"
+      }
     }
   },
   "typography": {
@@ -208,6 +214,18 @@
       "bold": {
         "value": "Bold",
         "css": "--font-weight-bold: 700;"
+      }
+    },
+    "fontSize": {
+      "base": {
+        "value": "16px",
+        "css": "--font-size-base: 16px;"
+      }
+    },
+    "lineHeight": {
+      "6": {
+        "value": "24px",
+        "css": "--line-height-6: 24px;"
       }
     }
   },
@@ -253,6 +271,36 @@
     "widthConsistency": {
       "value": "constant",
       "css": "--stroke-width-consistency: constant;"
+    }
+  },
+  "spacing": {
+    "3": {
+      "value": "12px",
+      "css": "--spacing-3: 12px;"
+    },
+    "6": {
+      "value": "24px",
+      "css": "--spacing-6: 24px;"
+    }
+  },
+  "border": {
+    "style": {
+      "none": {
+        "value": "none",
+        "css": "--border-style-none: none;"
+      }
+    }
+  },
+  "radius": {
+    "lg": {
+      "value": "8px",
+      "css": "--radius-lg: 8px;"
+    }
+  },
+  "cursor": {
+    "pointer": {
+      "value": "pointer",
+      "css": "--cursor-pointer: pointer;"
     }
   }
 }
