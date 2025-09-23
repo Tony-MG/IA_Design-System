@@ -1,3 +1,50 @@
 {
-
+  "btn-cyan-primary-v1": {
+    "id": "btn-cyan-primary-v1",
+    "name": "Bouton primaire cyan (coins droits supérieurs non arrondis)",
+    "type": "button",
+    "description": "Bouton d’action principal avec fond cyan basé sur les tokens du Design System. Coins arrondis sauf en haut à droite, texte sombre lisible, et états hover/active tokenisés.",
+    "properties": [
+      {
+        "name": "label",
+        "type": "string",
+        "description": "Le texte affiché à l'intérieur du bouton.",
+        "example": "Libellé du bouton"
+      },
+      {
+        "name": "icon",
+        "type": "string",
+        "description": "Nom de l’icône à afficher (optionnel).",
+        "example": "arrow-right"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "description": "Si vrai, le bouton est désactivé (utilise aria-disabled).",
+        "value": false
+      },
+      {
+        "name": "type",
+        "type": "string",
+        "description": "Type natif du bouton (button | submit | reset).",
+        "example": "button"
+      }
+    ],
+    "htmlCode": "<button type=\"{{type}}\" aria-disabled=\"{{disabled}}\" class=\"bg-cyan-400 hover:bg-cyan-500 active:bg-cyan-600 text-neutral-100 type-role-body-nav-cta text-base leading-6 px-6 py-3 cursor-pointer border-none rounded-tl-lg rounded-bl-lg rounded-br-lg focus:outline-none focus:ring-2 focus:ring-cyan-700 focus:ring-offset-2 focus:ring-offset-white-100 transition-colors\">{{label}}</button>",
+    "interactions": [
+      {
+        "action": "hover",
+        "description": "Le fond s’éclaircit vers le token cyan-500 (classe hover:bg-cyan-500) pour un feedback visuel."
+      },
+      {
+        "action": "focus",
+        "description": "Un halo de focus apparaît (focus:ring-2 focus:ring-cyan-700 avec un offset sur fond blanc) pour l’accessibilité clavier."
+      },
+      {
+        "action": "click",
+        "description": "À l’activation/maintien, le fond s’éclaircit davantage vers cyan-600 (classe active:bg-cyan-600)."
+      }
+    ],
+    "subComponents": []
+  }
 }
