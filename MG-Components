@@ -46,5 +46,77 @@
       }
     ],
     "subComponents": []
+  },
+  "card-profile-v1": {
+    "id": "card-profile-v1",
+    "name": "Carte profil utilisateur (Avatar, Nom, Poste, Citation, CTA)",
+    "type": "card",
+    "description": "Carte de profil compacte avec avatar, nom (Nom en gras + Prénom), intitulé de poste, citation et bouton d’appel à l’action.",
+    "properties": [
+      {
+        "name": "imageUrl",
+        "type": "string",
+        "description": "URL de l’avatar utilisateur.",
+        "example": "https://images.unsplash.com/photo-1576558656222-ba66febe3dec?q=80&w=1080"
+      },
+      {
+        "name": "userFirstName",
+        "type": "string",
+        "description": "Prénom de l’utilisateur.",
+        "example": "Marie"
+      },
+      {
+        "name": "userLastName",
+        "type": "string",
+        "description": "Nom de famille de l’utilisateur.",
+        "example": "Dupont"
+      },
+      {
+        "name": "userTitle",
+        "type": "string",
+        "description": "Intitulé du poste de l’utilisateur.",
+        "example": "Développeuse Frontend"
+      },
+      {
+        "name": "quote",
+        "type": "string",
+        "description": "Courte citation ou phrase d’accroche.",
+        "example": "Créer des interfaces utilisateur intuitives et accessibles est ma passion."
+      },
+      {
+        "name": "ctaLabel",
+        "type": "string",
+        "description": "Texte du bouton d’appel à l’action.",
+        "example": "Voir le profil"
+      },
+      {
+        "name": "width",
+        "type": "number",
+        "description": "Largeur de la carte en pixels.",
+        "example": 300
+      },
+      {
+        "name": "disabledCta",
+        "type": "boolean",
+        "description": "Si vrai, le bouton CTA est désactivé.",
+        "value": false
+      }
+    ],
+    "htmlCode": "<div class=\"flex flex-col items-center w-[{{width}}px] bg-white-100 p-6 border-2 border-purple-500 rounded-tr-lg rounded-bl-lg rounded-br-lg shadow-lg\" style=\"font-family: var(--font-family);\"><img src=\"{{imageUrl}}\" alt=\"Portrait de {{userFirstName}} {{userLastName}}\" class=\"w-20 h-20 object-cover rounded-lg mb-3\" /><div class=\"text-center\"><div class=\"text-neutral-100 text-base leading-6 mb-3\"><span class=\"font-bold\">{{userLastName}}</span><span class=\"font-normal\"> {{userFirstName}}</span></div><p class=\"text-neutral-700 text-base leading-6 font-semibold mb-3 m-0\">{{userTitle}}</p><p class=\"text-neutral-800 text-base leading-6 font-normal mb-6 m-0\">{{quote}}</p><button type=\"button\" aria-disabled=\"{{disabledCta}}\" class=\"bg-cyan-400 hover:bg-cyan-500 active:bg-cyan-600 text-neutral-100 text-base leading-6 font-normal px-6 py-3 cursor-pointer border-none rounded-tl-lg rounded-bl-lg rounded-br-lg focus:outline-none focus:ring-2 focus:ring-cyan-700 focus:ring-offset-2 focus:ring-offset-white-100 transition-colors\">{{ctaLabel}}</button></div></div>",
+    "interactions": [
+      {
+        "action": "hover",
+        "description": "Au survol, le bouton change de couleur de fond de `bg-cyan-400` à `hover:bg-cyan-500`."
+      },
+      {
+        "action": "focus",
+        "description": "Au focus, le bouton affiche un anneau d’accent `focus:ring-2 focus:ring-cyan-700` avec un décalage `focus:ring-offset-2 focus:ring-offset-white-100`."
+      },
+      {
+        "action": "click",
+        "description": "À l’activation (mousedown), le bouton fonce en `active:bg-cyan-600` pour un retour tactile."
+      }
+    ],
+    "subComponents": []
   }
 }
