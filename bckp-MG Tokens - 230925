@@ -1,1 +1,106 @@
-
+{
+  "colors": {
+    "Green-100": {
+      "value": "#00C8C8",
+      "css": "--Green-100: #00C8C8;"
+    },
+    "Purple-100": {
+      "value": "#5E00D5",
+      "css": "--Purple-100: #5E00D5;"
+    },
+    "Orange-100": {
+      "value": "#FE976E",
+      "css": "--Orange-100: #FE976E;"
+    },
+    "Black-100": {
+      "value": "#393938",
+      "css": "--Black-100: #393938;"
+    },
+    "Teal-Light-100": {
+      "value": "#B3EEEE",
+      "css": "--Teal-Light-100: #B3EEEE;"
+    },
+    "Teal-Light-200": {
+      "value": "#CCF4F4",
+      "css": "--Teal-Light-200: #CCF4F4;"
+    },
+    "White-100": {
+      "value": "#FFFFFF",
+      "css": "--White-100: #FFFFFF;"
+    }
+  },
+  "typography": {
+    "fontFamilyBase": {
+      "value": "Jost",
+      "css": "--font-family-base: 'Jost';"
+    },
+    "fontWeightRegular": {
+      "value": 400,
+      "css": "--font-weight-regular: 400;"
+    },
+    "fontWeightSemibold": {
+      "value": 600,
+      "css": "--font-weight-semibold: 600;"
+    },
+    "fontWeightBold": {
+      "value": 700,
+      "css": "--font-weight-bold: 700;"
+    }
+  },
+  "iconography": {
+    "iconStrokeColor": {
+      "value": "#5E00D5",
+      "css": "--icon-stroke-color: #5E00D5;"
+    },
+    "iconBackgroundColorOnWhite": {
+      "value": "#CCF4F4",
+      "css": "--icon-background-color-on-white: #CCF4F4;"
+    },
+    "overlayColor": {
+      "value": "rgba(0, 200, 200, 0.2)",
+      "css": "--overlay-color: rgba(0, 200, 200, 0.2);"
+    }
+  },
+  "spacing": {
+    "space2": {
+      "value": "0.5rem",
+      "css": "--space-2: 0.5rem;"
+    },
+    "space4": {
+      "value": "1rem",
+      "css": "--space-4: 1rem;"
+    }
+  },
+  "radii": {
+    "radiusMd": {
+      "value": "0.375rem",
+      "css": "--radius-md: 0.375rem;"
+    }
+  },
+  "borders": {
+    "ringWidth": {
+      "value": "2px",
+      "css": "--ring-width: 2px;"
+    },
+    "ringOffsetWidth": {
+      "value": "2px",
+      "css": "--ring-offset-width: 2px;"
+    }
+  },
+  "effects": {
+    "brightnessHover": {
+      "value": 0.95,
+      "css": "--brightness-hover: 0.95;"
+    },
+    "brightnessActive": {
+      "value": 0.9,
+      "css": "--brightness-active: 0.9;"
+    }
+  },
+  "layout": {
+    "widthFit": {
+      "value": "fit-content",
+      "css": "--width-fit: fit-content;"
+    }
+  }
+}
