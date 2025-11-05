@@ -207,90 +207,90 @@
         "id": "input-text-field",
         "name": "Champ texte avec label et icône utilisateur",
         "type": "input",
-        "description": "Champ de saisie texte avec label visible, icône utilisateur à gauche, indication de champ obligatoire et texte d'aide. Style utilitaire tokenisé, avec gestion des états focus et disabled pour l’accessibilité.",
+        "description": "Champ de saisie texte avec label visible, icône utilisateur, indication de champ obligatoire et texte d'aide. Style utilitaire tokenisé et états focus/disabled accessibles.",
         "properties": [
           {
             "name": "label",
             "type": "string",
             "description": "Texte du label du champ.",
-            "example": "Nom d'utilisateur"
+            "example": "Label"
           },
           {
-            "name": "icon",
+            "name": "required",
+            "type": "boolean",
+            "description": "Indique si le champ est obligatoire. Ajoute l'attribut required et l'indication visuelle (*).",
+            "value": false
+          },
+          {
+            "name": "placeholder",
             "type": "string",
-            "description": "Code SVG de l’icône affichée à gauche du label.",
-            "example": "<svg viewBox=\"0 0 13 14\" fill=\"none\" aria-hidden=\"true\" class=\"w-5 h-5 stroke-current\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M6.25 6.125C7.77817 6.125 9.0169 4.88628 9.0169 3.35813C9.0169 1.82997 7.77817 0.59125 6.25 0.59125C4.72184 0.59125 3.48311 1.82997 3.48311 3.35813C3.48311 4.88628 4.72184 6.125 6.25 6.125Z\"></path><path d=\"M11.7837 12.4088C11.7837 10.2057 9.38747 8.42 6.4587 8.42C3.52994 8.42 1.13367 10.2057 1.13367 12.4088\"></path></svg>"
+            "description": "Texte d'indication dans le champ.",
+            "example": "value"
+          },
+          {
+            "name": "helpText",
+            "type": "string",
+            "description": "Texte d'aide ou de description supplémentaire associé au champ.",
+            "example": "Small text to help user"
           },
           {
             "name": "inputId",
             "type": "string",
-            "description": "Identifiant unique du champ (associé au label et au texte d’aide).",
-            "example": "user-input"
+            "description": "Identifiant unique du champ (utilisé par le label et pour aria-describedby).",
+            "example": "user-name"
           },
           {
             "name": "name",
             "type": "string",
-            "description": "Nom du paramètre transmis lors de la soumission.",
+            "description": "Nom du champ envoyé lors de la soumission d'un formulaire.",
             "example": "username"
           },
           {
             "name": "value",
             "type": "string",
-            "description": "Valeur initiale du champ de saisie.",
-            "example": ""
-          },
-          {
-            "name": "placeholder",
-            "type": "string",
-            "description": "Texte indicatif affiché dans le champ.",
-            "example": "john.doe"
-          },
-          {
-            "name": "helpText",
-            "type": "string",
-            "description": "Texte d'aide ou de description supplémentaire.",
-            "example": "Votre identifiant de connexion (requis)."
+            "description": "Valeur initiale du champ.",
+            "example": "Jean Dupont"
           },
           {
             "name": "autocomplete",
             "type": "string",
-            "description": "Contrôle l’autocomplétion du champ.",
-            "example": "username"
+            "description": "Valeur d'autocomplétion HTML pour le champ.",
+            "example": "name"
           },
           {
-            "name": "required",
-            "type": "boolean",
-            "description": "Indique si le champ est obligatoire.",
-            "value": false
+            "name": "icon",
+            "type": "string",
+            "description": "Code SVG de l’icône affichée à gauche du label.",
+            "example": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\" class=\"w-5 h-5 stroke-current\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Z\"></path><path d=\"M20 21a8 8 0 0 0-16 0\"></path></svg>"
           },
           {
             "name": "disabled",
             "type": "boolean",
-            "description": "Si vrai, le champ est désactivé et non interactif.",
+            "description": "Si vrai, le champ est désactivé et non interactif (opacité réduite, curseur non autorisé).",
             "value": false
           }
         ],
-        "htmlCode": "<div class=\"w-full flex flex-col gap-sm\">\\n  <label for=\"{{inputId}}\" class=\"flex items-center gap-sm text-neutral-text font-jost text-body\">\\n    <span class=\"inline-flex w-5 h-5 text-neutral-text\" aria-hidden=\"true\">{{icon}}</span>\\n    <span class=\"inline-flex items-baseline gap-sm\">\\n      <span>{{label}}</span>\\n      <span class=\"text-primary-main\" aria-hidden=\"true\">{{required ? '*' : ''}}</span>\\n      <span class=\"sr-only\">{{required ? ' (obligatoire)' : ''}}</span>\\n    </span>\\n  </label>\\n  <input type=\"text\" id=\"{{inputId}}\" name=\"{{name}}\" value=\"{{value}}\" placeholder=\"{{placeholder}}\" aria-required=\"{{required}}\" aria-describedby=\"{{inputId}}-help\" autocomplete=\"{{autocomplete}}\" class=\"w-full px-md py-sm rounded-default border border-neutral-border bg-common-white text-neutral-text placeholder-neutral-subtle font-jost text-body focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-focus focus-visible:ring-offset-2 focus-visible:ring-offset-common-white disabled:opacity-50 disabled:cursor-not-allowed\" {{required ? 'required' : ''}} {{disabled ? 'disabled' : ''}} />\\n  <p id=\"{{inputId}}-help\" class=\"text-neutral-subtle font-jost text-body\">{{helpText}}</p>\\n</div>",
+        "htmlCode": "<div class=\"w-full flex flex-col gap-xs\">\n  <div class=\"flex items-center gap-sm\">\n    <span class=\"inline-flex items-center justify-center text-neutral-text\">{{icon}}</span>\n    <label for=\"{{inputId}}\" class=\"flex items-center gap-xs font-jost text-body text-neutral-text\">\n      <span class=\"font-medium\">{{label}}</span>\n      <span class=\"text-danger-main\" aria-hidden=\"true\">{{required ? '*' : ''}}</span>\n    </label>\n  </div>\n  <p id=\"{{inputId}}-help\" class=\"text-caption text-neutral-subtle\">{{helpText}}</p>\n  <input type=\"text\" id=\"{{inputId}}\" name=\"{{name}}\" value=\"{{value}}\" placeholder=\"{{placeholder}}\" aria-describedby=\"{{inputId}}-help\" aria-required=\"{{required}}\" autocomplete=\"{{autocomplete}}\" class=\"px-md py-sm rounded-default border border-neutral-border bg-common-white text-neutral-text placeholder-neutral-subtle font-jost text-body focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-focus focus-visible:ring-offset-2 focus-visible:ring-offset-common-white disabled:opacity-50 disabled:cursor-not-allowed\" {{required ? 'required' : ''}} {{disabled ? 'disabled' : ''}} />\n</div>",
         "interactions": [
           {
-            "action": "input",
-            "description": "Chaque frappe met à jour la valeur du champ. L’autocomplétion peut être proposée selon l’attribut 'autocomplete'."
-          },
-          {
             "action": "focus",
-            "description": "Un anneau de focus (focus-visible:ring-2, ring-primary-focus, ring-offset-2) apparaît autour du champ pour l’accessibilité clavier."
+            "description": "Au focus du champ, un anneau de focus apparaît (focus-visible:ring-2, ring-primary-focus) avec un offset pour l’accessibilité (ring-offset-2, ring-offset-common-white)."
           },
           {
-            "action": "blur",
-            "description": "À la perte de focus, le style de focus disparaît."
+            "action": "input",
+            "description": "La saisie met à jour dynamiquement la valeur du champ."
           },
           {
-            "action": "invalid/required",
-            "description": "Si 'required' est vrai et que le champ est vide lors de la soumission, la validation native empêche l’envoi et affiche un message."
+            "action": "hover",
+            "description": "Aucun changement majeur, l’état principal reste neutre pour éviter la distraction."
           },
           {
             "action": "disabled",
-            "description": "Le champ devient semi-transparent et non interactif (disabled:opacity-50, disabled:cursor-not-allowed)."
+            "description": "Quand 'disabled' est actif, le champ devient semi-transparent et non interactif (disabled:opacity-50, disabled:cursor-not-allowed)."
+          },
+          {
+            "action": "required",
+            "description": "Si 'required' est vrai, l’indicateur visuel (*) est affiché et le navigateur impose la validation native."
           }
         ],
         "subComponents": []
