@@ -1,206 +1,87 @@
 {
   "components":{
-    "btn-primary": {
-      "id": "btn-primary",
-      "name": "Bouton d'action (Style Utilitaire)",
-      "type": "button",
-      "description": "Un bouton d'action principal dont le style est entièrement défini par des classes utilitaires (type Tailwind CSS). Cette approche permet une grande flexibilité et un contrôle granulaire de l'apparence. Il gère les états hover, active, focus et disabled.",
+    "icon-right": {
+      "id": "icon-right",
+      "name": "Icône Droite",
+      "type": "div",
+      "description": "Un composant d'icône de 16x16px. Il affiche un SVG contenant un cercle (avec un remplissage CSS variable 'var(--fill-0, white)') et un chemin vectoriel (avec une bordure CSS variable 'var(--stroke-0, #5E00D5)'). Le chemin ('d') est défini dynamiquement via 'svgPaths.p140ffe00', qui dessine probablement une flèche ou un symbole vers la droite.",
+      "properties": [],
+      "htmlCode": "<div class=\"relative shrink-0 size-[16px]\" data-name=\"icon right\">\n  <svg class=\"block size-full\" fill=\"none\" preserveAspectRatio=\"none\" viewBox=\"0 0 16 16\">\n    <g id=\"icon right\">\n      <circle cx=\"8\" cy=\"8\" fill=\"var(--fill-0, white)\" id=\"Ellipse 75\" r=\"8\" />\n      <path d=\"{{svgPaths.p140ffe00}}\" id=\"Vector 15\" stroke=\"var(--stroke-0, #5E00D5)\" strokeLinecap=\"round\" />\n    </g>\n  </svg>\n</div>",
+      "interactions": [],
+      "subComponents": []
+    },
+    "button": {
+      "id": "button",
+      "name": "Bouton de validation",
+      "type": "div",
+      "description": "Un composant bouton cliquable avec un fond violet ('bg-[#5e00d5]'), du texte ('Valider') et une icône ('IconRight'). Le bouton a des coins arrondis, un curseur pointeur, et un état de survol ('hover:bg-[#4d00b0]') avec une transition de couleur. Il gère les clics via une prop 'onClick'.",
       "properties": [
         {
-          "name": "label",
-          "type": "string",
-          "description": "Le texte affiché à l'intérieur du bouton.",
-          "example": "Envoyer le message"
-        },
-        {
-          "name": "icon",
-          "type": "string",
-          "description": "Code SVG ou nom de la classe d'une icône à afficher avant le label.",
-          "example": "<svg>...</svg>"
-        },
-        {
-          "name": "disabled",
-          "type": "boolean",
-          "description": "Si vrai, le bouton est désactivé et son apparence change (opacité réduite, curseur non autorisé).",
-          "value": false
+          "name": "onClick",
+          "type": "() => void",
+          "description": "Fonction de rappel (callback) exécutée lorsque le bouton est cliqué."
         }
       ],
-      "htmlCode": "<button type=\"button\" aria-disabled=\"{{disabled}}\" class=\"inline-flex items-center justify-center gap-sm px-md py-sm rounded-default rounded-br-none bg-primary-main text-common-white border border-common-transparent font-jost text-body font-bold leading-none transition-colors hover:bg-primary-dark active:bg-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-focus focus-visible:ring-offset-2 focus-visible:ring-offset-common-white disabled:opacity-50 disabled:cursor-not-allowed shadow-sm\" {{disabled ? 'disabled' : ''}}>\n  <!-- L'icône serait insérée ici si fournie -->\n  <span>{{label}}</span>\n</button>",
+      "htmlCode": "<div \n  class=\"bg-[#5e00d5] box-border content-stretch flex gap-[8px] items-center justify-center p-[16px] relative rounded-[8px] shrink-0 cursor-pointer hover:bg-[#4d00b0] transition-colors\" \n  data-name=\"button\"\n>\n  <p class=\"font-['Jost:Medium',sans-serif] leading-[1.2] not-italic relative shrink-0 text-[16px] text-nowrap text-white whitespace-pre\">Valider</p>\n  <div class=\"relative shrink-0 size-[16px]\" data-name=\"icon right\">\n    <svg class=\"block size-full\" fill=\"none\" preserveAspectRatio=\"none\" viewBox=\"0 0 16 16\">\n      <g id=\"icon right\">\n        <circle cx=\"8\" cy=\"8\" fill=\"var(--fill-0, white)\" id=\"Ellipse 75\" r=\"8\" />\n        <path d=\"M5 8H11M8 5L11 8L8 11\" id=\"Vector 15\" stroke=\"var(--stroke-0, #5E00D5)\" strokeLinecap=\"round\" />\n      </g>\n    </svg>\n  </div>\n</div>",
       "interactions": [
         {
           "action": "click",
-          "description": "Déclenche l'action associée. Ne fonctionne pas si l'état est 'disabled'."
+          "description": "Exécute la fonction 'onClick' fournie. Le curseur est 'cursor-pointer'."
         },
         {
           "action": "hover",
-          "description": "Le fond du bouton s'assombrit (`bg-primary-dark`) pour fournir un retour visuel."
-        },
-        {
-          "action": "focus",
-          "description": "Un anneau de focus (`ring-2`) apparaît autour du bouton pour l'accessibilité au clavier."
+          "description": "Le fond s'assombrit pour devenir 'bg-[#4d00b0]' avec un effet 'transition-colors'."
         }
       ],
-      "subComponents": []
+      "subComponents": [
+        "icon-right"
+      ]
     },
-    "btn-secondary-outline": {
-      "id": "btn-secondary-outline",
-      "name": "Bouton secondaire (Contour)",
-      "type": "button",
-      "description": "Bouton d'action secondaire à fond transparent, avec texte et contour basés sur la couleur secondaire. Gère les états hover, active, focus et disabled via classes utilitaires tokenisées.",
-      "properties": [
-        {
-          "name": "label",
-          "type": "string",
-          "description": "Le texte affiché à l'intérieur du bouton.",
-          "example": "Action secondaire"
-        },
-        {
-          "name": "icon",
-          "type": "string",
-          "description": "Code SVG ou nom de la classe d'une icône à afficher avant le label.",
-          "example": "<svg>...</svg>"
-        },
-        {
-          "name": "disabled",
-          "type": "boolean",
-          "description": "Si vrai, le bouton est désactivé (opacité réduite, curseur non autorisé) et n'est pas interactif.",
-          "value": false
-        }
-      ],
-      "htmlCode": "<button type=\"button\" aria-disabled=\"{{disabled}}\" class=\"inline-flex items-center justify-center gap-sm px-md py-sm rounded-default rounded-tl-none rounded-br-none bg-common-transparent text-secondary-main border-2 border-secondary-main font-jost text-body font-bold leading-none transition-colors hover:text-secondary-dark hover:border-secondary-dark active:text-secondary-dark active:border-secondary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-light focus-visible:ring-offset-2 focus-visible:ring-offset-common-white disabled:opacity-50 disabled:cursor-not-allowed shadow-sm\" {{disabled ? 'disabled' : ''}}>\n  <!-- L'icône serait insérée ici si fournie -->\n  <span>{{label}}</span>\n</button>",
-      "interactions": [
-        {
-          "action": "click",
-          "description": "Déclenche l'action associée. N'a aucun effet si l'état est 'disabled'."
-        },
-        {
-          "action": "hover",
-          "description": "La couleur du texte et de la bordure passe à secondary-dark (hover:text-secondary-dark, hover:border-secondary-dark)."
-        },
-        {
-          "action": "active",
-          "description": "Pendant l'activation, conserve la teinte sombre pour le texte et la bordure (active:text-secondary-dark, active:border-secondary-dark)."
-        },
-        {
-          "action": "focus",
-          "description": "Affiche un anneau de focus (focus-visible:ring-2) avec la couleur secondary-light et un offset de 2 sur fond blanc (ring-offset-2, ring-offset-common-white)."
-        }
-      ],
-      "subComponents": []
+    "label": {
+      "id": "label",
+      "name": "Label de champ",
+      "type": "div",
+      "description": "Un composant d'étiquette, typiquement utilisé pour un champ de formulaire. Il affiche le texte 'Nom' en gras (Jost Bold, 14px, couleur #292929). Le composant est structuré en deux parties, 'Left' (contenant le texte) et 'Right' (actuellement vide), alignées horizontalement avec un 'gap' de 8px. Il utilise des classes utilitaires (style Tailwind).",
+      "properties": [],
+      "htmlCode": "<div class=\"content-stretch flex gap-[8px] items-center relative shrink-0 w-[468px]\" data-name=\"Label\">\n  <div class=\"content-stretch flex gap-[8px] items-center justify-center relative shrink-0\" data-name=\"Left\">\n    <p class=\"font-['Jost:Bold',sans-serif] leading-[20px] not-italic relative shrink-0 text-[#292929] text-[14px] text-nowrap whitespace-pre font-[Jost] font-bold\">Nom</p>\n  </div>\n  <div class=\"content-stretch flex gap-[10px] h-[24px] items-center shrink-0\" data-name=\"Right\"></div>\n</div>",
+      "interactions": [],
+      "subComponents": [
+        "left",
+        "right"
+      ]
     },
-    "search-form-inline": {
-      "id": "search-form-inline",
-      "name": "Formulaire de recherche (inline)",
-      "type": "form",
-      "description": "Un formulaire de recherche compact avec un champ de saisie et un bouton d’envoi icône. Style basé sur des classes utilitaires tokenisées du Design System et gérant les états focus, hover, active et disabled.",
+    "input-text": {
+      "id": "input-text",
+      "name": "Champ de saisie texte",
+      "type": "div",
+      "description": "Un composant de formulaire pour la saisie de texte. Il est composé d'un sous-composant 'Label' (probablement pour afficher le nom du champ, comme 'Nom' visible sur l'image) et d'un champ 'input' stylisé. Le champ de saisie utilise des classes utilitaires (Tailwind) pour un fond 'bg-neutral-100', une bordure 'border-[#aeaeae]', et un texte de placeholder italique 'text-[#6e6e6e]'. Le composant est contrôlé via les props 'value' et 'onChange'.",
       "properties": [
-        {
-          "name": "action",
-          "type": "string",
-          "description": "URL de soumission du formulaire.",
-          "example": "/search"
-        },
-        {
-          "name": "method",
-          "type": "string",
-          "description": "Méthode HTTP de soumission du formulaire (get ou post).",
-          "example": "get"
-        },
-        {
-          "name": "inputId",
-          "type": "string",
-          "description": "Identifiant unique du champ de recherche, utilisé par l’étiquette associée.",
-          "example": "search-input"
-        },
-        {
-          "name": "name",
-          "type": "string",
-          "description": "Nom du paramètre transmis lors de la soumission.",
-          "example": "q"
-        },
-        {
-          "name": "label",
-          "type": "string",
-          "description": "Texte de l’étiquette accessible (visuellement masquée).",
-          "example": "Rechercher"
-        },
-        {
-          "name": "ariaLabel",
-          "type": "string",
-          "description": "Libellé ARIA appliqué au champ de recherche.",
-          "example": "Rechercher"
-        },
-        {
-          "name": "placeholder",
-          "type": "string",
-          "description": "Texte indicatif affiché dans le champ.",
-          "example": "Rechercher..."
-        },
         {
           "name": "value",
           "type": "string",
-          "description": "Valeur initiale du champ de recherche.",
-          "example": "Design System"
+          "description": "La valeur textuelle actuelle du champ de saisie."
         },
         {
-          "name": "autocomplete",
-          "type": "string",
-          "description": "Contrôle l’autocomplétion du champ (on/off).",
-          "example": "off"
-        },
-        {
-          "name": "submitAriaLabel",
-          "type": "string",
-          "description": "Libellé ARIA du bouton de soumission (icône seule).",
-          "example": "Lancer la recherche"
-        },
-        {
-          "name": "icon",
-          "type": "string",
-          "description": "Code SVG de l’icône affichée dans le bouton de soumission.",
-          "example": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\" class=\"w-5 h-5 stroke-current\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"11\" cy=\"11\" r=\"8\"></circle><path d=\"m21 21-4.35-4.35\"></path></svg>"
-        },
-        {
-          "name": "disabled",
-          "type": "boolean",
-          "description": "Si vrai, le champ et le bouton sont désactivés.",
-          "value": false
-        },
-        {
-          "name": "noValidate",
-          "type": "boolean",
-          "description": "Si vrai, désactive la validation native du navigateur (novalidate).",
-          "value": true
+          "name": "onChange",
+          "type": "(value: string) => void",
+          "description": "Fonction de rappel (callback) exécutée lorsque la valeur du champ change. Elle reçoit la nouvelle valeur (string) en argument."
         }
       ],
-      "htmlCode": "<form role=\"search\" {{noValidate ? 'novalidate' : ''}} action=\"{{action}}\" method=\"{{method}}\" class=\"w-full flex items-center gap-sm\">\\n  <label for=\"{{inputId}}\" class=\"sr-only\">{{label}}</label>\\n  <input type=\"search\" id=\"{{inputId}}\" name=\"{{name}}\" placeholder=\"{{placeholder}}\" aria-label=\"{{ariaLabel}}\" autocomplete=\"{{autocomplete}}\" value=\"{{value}}\" class=\"flex-1 px-md py-sm rounded-default border border-neutral-border bg-common-white text-neutral-text placeholder-neutral-subtle font-jost text-body focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-focus focus-visible:ring-offset-2 focus-visible:ring-offset-common-white\" {{disabled ? 'disabled' : ''}} />\\n  <button type=\"submit\" aria-label=\"{{submitAriaLabel}}\" class=\"inline-flex items-center justify-center px-md py-sm rounded-default bg-common-transparent text-secondary-main border-2 border-secondary-main font-jost text-body leading-none transition-colors hover:text-secondary-dark hover:border-secondary-dark active:text-secondary-dark active:border-secondary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-light focus-visible:ring-offset-2 focus-visible:ring-offset-common-white disabled:opacity-50 disabled:cursor-not-allowed shadow-sm\" {{disabled ? 'disabled' : ''}}>{{icon}}</button>\\n</form>",
+      "htmlCode": "<div class=\"content-stretch flex flex-col gap-[8px] h-[88px] items-start relative shrink-0 w-full\" data-name=\"Input-text\">\n  \n  <div class=\"bg-neutral-100 h-[51px] relative rounded-[8px] shrink-0 w-full\" data-name=\"Input\">\n    <div aria-hidden=\"true\" class=\"absolute border border-[#aeaeae] border-solid inset-0 pointer-events-none rounded-[8px]\"></div>\n    <div class=\"flex flex-col justify-center size-full\">\n      <div class=\"box-border content-stretch flex flex-col h-[51px] items-start justify-center px-[16px] py-0 relative w-full\">\n        <div class=\"content-stretch flex items-center relative shrink-0 w-full\">\n          <input\n            type=\"text\"\n            value=\"{{value}}\"\n            placeholder=\"Saisissez votre texte ici\"\n            class=\"basis-0 font-['Jost:Italic',sans-serif] grow italic leading-[16px] min-h-px min-w-px relative shrink-0 text-[#6e6e6e] text-[12px] bg-transparent border-none outline-none placeholder:text-[#6e6e6e]\"\n          />\n        </div>\n      </div>\n    </div>\n  </div>\n</div>",
       "interactions": [
         {
-          "action": "submit",
-          "description": "Un clic sur le bouton ou la touche Entrée dans le champ déclenche la soumission du formulaire. Aucune action si l'état est 'disabled'."
+          "action": "focus",
+          "description": "La bordure de focus (outline) par défaut du navigateur est désactivée sur l'élément 'input' via la classe 'outline-none'."
         },
         {
-          "action": "hover (bouton)",
-          "description": "Le texte et la bordure passent à secondary-dark (hover:text-secondary-dark, hover:border-secondary-dark)."
-        },
-        {
-          "action": "active (bouton)",
-          "description": "Pendant l'activation, conserve la teinte sombre pour le texte et la bordure (active:text-secondary-dark, active:border-secondary-dark)."
-        },
-        {
-          "action": "focus (champ)",
-          "description": "Affiche un anneau de focus autour du champ (focus-visible:ring-2) avec ring-primary-focus et un offset de 2 sur fond blanc (ring-offset-2, ring-offset-common-white)."
-        },
-        {
-          "action": "focus (bouton)",
-          "description": "Affiche un anneau de focus (focus-visible:ring-2) avec ring-secondary-light et un offset de 2 (ring-offset-2, ring-offset-common-white)."
-        },
-        {
-          "action": "disabled",
-          "description": "Le bouton devient semi-transparent et non interactif (disabled:opacity-50, disabled:cursor-not-allowed). Le champ reçoit l'attribut disabled s'il est activé."
+          "action": "pointer",
+          "description": "La div qui dessine la bordure est configurée avec 'pointer-events-none' pour s'assurer qu'elle n'intercepte pas les clics ou les hovers destinés à l'input."
         }
       ],
-      "subComponents": []
+      "subComponents": [
+        "label"
+      ]
     }
+    
   }
 }
