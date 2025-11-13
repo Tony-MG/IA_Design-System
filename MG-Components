@@ -84,12 +84,16 @@
         ]
       },
       "": {
-        "error": "missing_inputs",
-        "message": "Veuillez fournir l'image du composant UI et le code source React (JSX/TSX) correspondant pour générer le JSON selon le schéma.",
-        "expected": [
-          "image (capture ou lien)",
-          "code React (JSX/TSX)"
-        ]
+        "missing-component-input": {
+          "id": "missing-component-input",
+          "name": "Entrées manquantes pour l'analyse de composant",
+          "type": "div",
+          "description": "Aucune image du composant ni code source React (JSX/TSX) n'ont été fournis. Veuillez envoyer: 1) une image claire du composant UI, 2) le code JSX/TSX correspondant. Avec ces éléments, je générerai un JSON détaillé (structure, props, HTML templaté, interactions, sous-composants).",
+          "properties": [],
+          "htmlCode": "",
+          "interactions": [],
+          "subComponents": []
+        }
       }
     }
   }
