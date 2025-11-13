@@ -84,15 +84,21 @@
         ]
       },
       "": {
-        "missing-component-input": {
-          "id": "missing-component-input",
-          "name": "Entrées manquantes pour l'analyse de composant",
-          "type": "div",
-          "description": "Aucune image du composant ni code source React (JSX/TSX) n'ont été fournis. Veuillez envoyer: 1) une image claire du composant UI, 2) le code JSX/TSX correspondant. Avec ces éléments, je générerai un JSON détaillé (structure, props, HTML templaté, interactions, sous-composants).",
-          "properties": [],
-          "htmlCode": "",
-          "interactions": [],
-          "subComponents": []
+        "status": "need-inputs",
+        "error": "missing_component_image_and_code",
+        "message": "Veuillez fournir 1) l'image du composant UI (ou un lien) et 2) le code source React (JSX/TSX) du même composant afin de générer le JSON conforme au schéma.",
+        "required": [
+          "image",
+          "reactCode"
+        ],
+        "hints": [
+          "Incluez les définitions de props (interface/type TS ou propTypes) si disponibles.",
+          "Précisez la variante affichée si le composant en possède plusieurs.",
+          "Indiquez le nom du composant exporté et, si pertinent, les sous-composants utilisés."
+        ],
+        "examples": {
+          "image": "https://exemple.com/ui/component.png",
+          "reactCode": "export function PrimaryButton({ label, disabled }) { return (<button className=\"inline-flex items-center rounded-lg bg-primary px-4 py-2 text-white hover:bg-primary/90 disabled:opacity-50\" disabled={disabled}>{label}</button>); }"
         }
       }
     }
